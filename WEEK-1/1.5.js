@@ -19,6 +19,8 @@ Async/Await is syntax built on Promises that makes
 async code look and behave like synchronous code. It is typically
  used by the function caller, not the creator
  */
+const { Console } = require('console');
+const fs=require('fs');
 
 
 function findSumTill100(n){
@@ -34,3 +36,9 @@ function findSum(){
 
 setTimeout(findSum,1000);
 console.log("Hello World");
+
+fs.readFile("a.txt","utf-8",(err,data)=>{
+    if(err) console.log(err);
+    else console.log(data); 
+});
+console.log("Reading File");
