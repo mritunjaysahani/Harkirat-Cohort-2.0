@@ -42,3 +42,35 @@ fs.readFile("a.txt","utf-8",(err,data)=>{
     else console.log(data); 
 });
 console.log("Reading File");
+//it is just a pretty way to write callbacks
+
+let p=new Promise((resolve,reject)=>{
+    let a=1+1;  
+    if(a==2){
+        resolve("Success");
+    }   
+    else{
+        reject("Failed");
+    }
+});
+p.then((message)=>{
+    console.log("This is in the then "+message);
+}
+).catch((message)=>{
+    console.log("This is in the catch "+message);
+}); 
+//
+function kirat(){
+    let p=new Promise((resolve,reject)=>{
+        resolve("Kirat");
+    });
+    return p;
+}   
+async function main(){  
+    kirat.then((message)=>{
+        console.log(message);
+    });
+    let msg=await kirat();
+    console.log(msg);
+}
+main();
